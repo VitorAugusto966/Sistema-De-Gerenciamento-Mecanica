@@ -1,0 +1,141 @@
+#cadOS-container {
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    gap: 20px; 
+    padding: 20px;
+    background-color: black; 
+  }
+  
+  #cadOS {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  #cadOS h1 {
+    font-size: 26px;
+    color: white;
+  }
+  
+  #cadOS h1:hover {
+    color: #0d86e8; 
+  }
+  
+  #form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 600px;
+  }
+  
+  #form input,
+  #form select {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid #0d86e8;
+    background-color: #1c1c1c;
+    color: white;
+  }
+  
+  #form input:focus,
+  #form select:focus {
+    outline: none;
+    border-color: #3399ff; 
+  }
+  
+  #form button {
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #0d86e8;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  #form button:hover {
+    background-color: #00509e;
+  }
+  
+  .styled-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .styled-table thead tr {
+    background-color: #0d86e8; 
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 10px 15px;
+  }
+  
+  .styled-table tbody tr:nth-of-type(odd) {
+    background-color: #b3daff; 
+    color: black; 
+  }
+  
+  
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #00509e;
+  }
+  
+  .styled-table tbody tr:hover {
+    background-color: #0d86e8;
+  }
+  
+  .btn-remove {
+    color: #fff;
+    background-color: #ff5f5f;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-remove:hover {
+    background-color: #ff3838;
+  }
+  
+  @media (max-width: 768px) {
+    .styled-table {
+      width: 100%;
+      font-size: 14px;
+    }
+  
+    .btn-remove {
+      padding: 5px;
+      font-size: 12px;
+    }
+  }
+  
+  input:disabled {
+    background-color: #333;
+    color: #999;
+    border: 1px solid #555;
+    cursor: not-allowed;
+  }
+  
+  

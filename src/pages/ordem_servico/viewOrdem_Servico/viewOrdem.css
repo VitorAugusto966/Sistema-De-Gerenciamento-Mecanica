@@ -1,0 +1,27 @@
+.viewOS {
+  background-color: black;
+  min-height: "100vh";
+}
+
+.filterBar {
+  background-color: #0d86e8;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filterBar select {
+  background-color: #1c1c1c;
+  color: white;
+  border: 1px solid #0d86e8;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.filterBar select:focus {
+  outline: none;
+  border-color: #0d86e8;
+}

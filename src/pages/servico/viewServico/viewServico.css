@@ -1,0 +1,29 @@
+#titulo{
+    margin-top: 20px;
+}
+.viewM
+{
+        background-color: black;
+        color:white;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        
+    }
+
+.table{
+        background-color: white;
+        text-align: center;
+        justify-content: center;
+        margin: 10px;
+        width: 90%;
+        color:black;
+    }
+
+
+#btn-excluir{
+    background-color: red;
+    color:white;
+}

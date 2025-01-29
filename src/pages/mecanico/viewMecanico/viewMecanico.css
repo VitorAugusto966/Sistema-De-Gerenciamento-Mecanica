@@ -1,0 +1,74 @@
+.viewM {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.viewM h1 {
+    color: #0d86e8;
+    font-size: 36px;
+    text-shadow: 0px 0px 8px #0d86e8;
+    margin-bottom: 20px;
+}
+
+.table {
+    background-color: white; 
+    text-align: center;
+    justify-content: center;
+    margin: 10px;
+    width: 90%;
+    color: black;
+    border-collapse: collapse;
+    box-shadow: 0 0 15px rgba(0, 136, 255, 0.6); 
+}
+
+.table thead {
+    background-color: #0d86e8; 
+    color: white;
+    font-size: 18px;
+    text-shadow: 0px 0px 5px #0d86e8;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f0f0f0; 
+    color: black;
+
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #ffffff; 
+    color:black
+}
+
+.table tbody tr:hover {
+    background-color: #e0f7ff; 
+    transition: 0.3s;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    border: 1px solid #0d86e8;
+}
+
+button {
+    background-color: #ff3b3b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(255, 59, 59, 0.8);
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff1c1c;
+    box-shadow: 0px 0px 10px rgba(255, 28, 28, 0.8);
+}

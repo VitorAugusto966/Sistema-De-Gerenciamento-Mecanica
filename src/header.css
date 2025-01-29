@@ -1,0 +1,45 @@
+.navbar {
+  padding: 10px 20px;
+}
+
+.btn-logout {
+  margin-left: auto;
+  padding: 5px 15px;
+  font-weight: bold;
+  position: absolute;
+  right: 40px;
+}
+
+.btn-logout:hover {
+  background-color: red;
+  color: white;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.dropdown-menu {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .btn-logout {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
