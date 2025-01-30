@@ -1,29 +1,53 @@
-#titulo{
-    margin-top: 20px;
+#titulo {
+  margin-top: 20px;
 }
-.viewM
-{
-        background-color: black;
-        color:white;
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-        
-    }
-
-.table{
-        background-color: white;
-        text-align: center;
-        justify-content: center;
-        margin: 10px;
-        width: 90%;
-        color:black;
-    }
-
-
-#btn-excluir{
-    background-color: red;
-    color:white;
+.viewM {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
+
+.table {
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+  margin: 10px;
+  width: 90%;
+  color: black;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-edit {
+  background: #ffc107;
+  color: #333;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.btn-edit:hover {
+  background: #e0a800;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-delete:hover {
+  background: #c82333;
+}
+

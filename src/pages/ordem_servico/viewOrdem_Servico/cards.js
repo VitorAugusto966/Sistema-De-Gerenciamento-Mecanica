@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const MaterialCard = ({ counter, id, nome, mecanico, valor, duracao, servicos, created, status, onFinalizar }) => {
   const navigate = useNavigate();
 
-  // Definição de cores do status
   const statusColors = {
     "Em andamento": { bg: "#faff00", text: "#000" },
     "Finalizado": { bg: "#2de810", text: "#fff" },
@@ -29,7 +28,6 @@ const MaterialCard = ({ counter, id, nome, mecanico, valor, duracao, servicos, c
       onClick={() => navigate(`/detalheOS/${id}`)}
     >
       <CardContent sx={{ padding: "20px" }}>
-        {/* Badge de status */}
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={1}>
           <Typography variant="h6">OS #{counter}</Typography>
           <Chip
@@ -59,7 +57,6 @@ const MaterialCard = ({ counter, id, nome, mecanico, valor, duracao, servicos, c
           <strong>Duração:</strong> {duracao} horas
         </Typography>
 
-        {/* Lista de serviços */}
         <Box mt={2}>
           <Typography variant="body2" fontWeight="bold">
             Serviços:
@@ -73,7 +70,6 @@ const MaterialCard = ({ counter, id, nome, mecanico, valor, duracao, servicos, c
           </ul>
         </Box>
 
-        {/* Botão de Finalizar */}
         {status === "Em andamento" && (
           <Button
             variant="contained"
@@ -89,7 +85,7 @@ const MaterialCard = ({ counter, id, nome, mecanico, valor, duracao, servicos, c
               },
             }}
             onClick={(e) => {
-              e.stopPropagation(); // Evita clicar e navegar para a página de detalhes
+              e.stopPropagation(); 
               onFinalizar(id);
             }}
           >

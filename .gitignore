@@ -24,3 +24,5 @@ yarn-error.log*
 
 /src/fireBaseconfig.js
 /.README.md
+# Local Netlify folder
+.netlify

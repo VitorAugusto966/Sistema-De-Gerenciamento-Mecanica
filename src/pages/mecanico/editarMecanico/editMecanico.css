@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.editM {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+}
+
+.editM h1 {
+    color: white;
+    margin-top: 60px;
+    padding-bottom: 20px;
+}
+
+.editM h1:hover {
+    color: lightskyblue;
+}
+
+.editM button {
+    color: black;
+    margin-top: 10px;
+    background-color: lightskyblue;
+}
+
+/* Ajuste no input de data para melhor visualização */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 170, 255, 0.3);
+}
+
+.form input {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    transition: 0.3s;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.form input:focus {
+    border: 2px solid #00aaff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.form button {
+    height: 40px;
+    border: 0;
+    border-radius: 8px;
+    background: #00aaff;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form button:hover {
+    background: #0088cc;
+}
+
+.button-link {
+    text-decoration: none;
+    margin-top: 15px;
+    color: #00aaff;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.button-link:hover {
+    color: #0088cc;
+}
