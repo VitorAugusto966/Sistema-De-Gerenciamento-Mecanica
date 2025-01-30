@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../../../header";
-import { useParams } from "react-router-dom"; // Para capturar o ID da OS da URL
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom"; 
+import { doc, getDoc, updateDoc,getDocs,collection } from "firebase/firestore";
 import { db } from "../../../firebaseConnection";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,19 +9,22 @@ import "./detalheOs.css";
 
 
 function DetalheOS() {
-    const { id } = useParams(); 
+    const { id } = useParams();
     const [os, setOs] = useState(null);
     const [loading, setLoading] = useState(true);
-
     const [nome, setNome] = useState("");
     const [mecanico, setMecanico] = useState("");
     const [status, setStatus] = useState("");
+    const [valor, setValor] = useState(0);
+    const [duracao, setDuracao] = useState(0);
     const [servicosAdicionados, setServicosAdicionados] = useState([]);
-
+    const [mecanicos, setMecanicos] = useState([]);
+    const [servicosDisponiveis, setServicosDisponiveis] = useState([]);
+    const [servicoSelecionado, setServicoSelecionado] = useState("");
     useEffect(() => {
         async function loadOS() {
             try {
-                const osRef = doc(db, "ordens_servico", id); 
+                const osRef = doc(db, "ordens_servico", id);
                 const osSnap = await getDoc(osRef);
 
                 if (osSnap.exists()) {
@@ -30,6 +33,8 @@ function DetalheOS() {
                     setNome(data.nome);
                     setMecanico(data.mecanico);
                     setStatus(data.status);
+                    setValor(data.valor);
+                    setDuracao(data.duracao);
                     setServicosAdicionados(data.servicos || []);
                 } else {
                     toast.error("Ordem de Serviço não encontrada.");
@@ -42,17 +47,31 @@ function DetalheOS() {
             }
         }
 
+        async function loadMecanicos() {
+            const querySnapshot = await getDocs(collection(db, "mecanicos"));
+            setMecanicos(querySnapshot.docs.map(doc => ({ id: doc.id, nome: doc.data().nome })));
+        }
+
+        async function loadServicos() {
+            const querySnapshot = await getDocs(collection(db, "servicos"));
+            setServicosDisponiveis(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+        }
+
         loadOS();
+        loadMecanicos();
+        loadServicos();
     }, [id]);
 
     async function handleSave() {
         try {
             const osRef = doc(db, "ordens_servico", id);
             await updateDoc(osRef, {
-                nome: nome,
-                mecanico: mecanico,
-                status: status,
+                nome,
+                mecanico,
+                status,
                 servicos: servicosAdicionados,
+                valor,
+                duracao
             });
 
             toast.success("Ordem de Serviço atualizada com sucesso!");
@@ -62,10 +81,33 @@ function DetalheOS() {
         }
     }
 
-    function removeServico(id) {
-        const novaLista = servicosAdicionados.filter((servico) => servico.id !== id);
+    function removeServico(servicoId) {
+        const servicoRemovido = servicosAdicionados.find((s) => s.id === servicoId);
+        const novaLista = servicosAdicionados.filter((s) => s.id !== servicoId);
+
+        if (servicoRemovido) {
+            setValor(valor - parseFloat(servicoRemovido.valor));
+            setDuracao(duracao - parseInt(servicoRemovido.duracao));
+            toast.info("Serviço removido!");
+        }
+
         setServicosAdicionados(novaLista);
-        toast.info("Serviço removido!");
+    }
+
+    function addServico() {
+        if (servicoSelecionado !== "") {
+            const servico = servicosDisponiveis.find((s) => s.id === servicoSelecionado);
+
+            if (servico && !servicosAdicionados.some((s) => s.id === servico.id)) {
+                setServicosAdicionados((prev) => [...prev, servico]);
+                setValor(valor + parseFloat(servico.valor));
+                setDuracao(duracao + parseInt(servico.duracao));
+                setServicoSelecionado("");
+                toast.success("Serviço adicionado!");
+            } else {
+                toast.warn("Serviço já adicionado!");
+            }
+        }
     }
 
     if (loading) {
@@ -98,23 +140,23 @@ function DetalheOS() {
                         <input type="number" value={os.duracao} disabled />
 
                         <label>Mecânico:</label>
-                        <input
-                            type="text"
-                            value={mecanico}
-                            onChange={(e) => setMecanico(e.target.value)}
-                        />
-
-                        <label>Status:</label>
-                        <select
-                            value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                        >
-                            <option value="Em andamento">Em andamento</option>
-                            <option value="Concluído">Concluído</option>
-                            <option value="Cancelado">Cancelado</option>
+                        <select value={mecanico} onChange={(e) => setMecanico(e.target.value)}>
+                            <option value="">Selecione um mecânico</option>
+                            {mecanicos.map((mec) => (
+                                <option key={mec.id} value={mec.nome}>{mec.nome}</option>
+                            ))}
                         </select>
 
-                        <button type="button" className="btn-save" onClick={handleSave}>
+                        <label>Selecione um serviço:</label>
+                        <select value={servicoSelecionado} onChange={(e) => setServicoSelecionado(e.target.value)}>
+                            <option value="">Selecione</option>
+                            {servicosDisponiveis.map((servico) => (
+                                <option key={servico.id} value={servico.id}>{servico.nome}</option>
+                            ))}
+                        </select>
+                        <button type="button" onClick={addServico}>Adicionar Serviço</button>
+                        
+                        <button style={{marginTop:"10px"}} type="button" className="btn-save" onClick={handleSave}>
                             Salvar Alterações
                         </button>
                     </form>
