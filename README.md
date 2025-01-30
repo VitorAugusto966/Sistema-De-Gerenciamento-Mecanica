@@ -2,6 +2,23 @@
 
 Um sistema web para gerenciamento de ordens de serviço, faturamento e controle de serviços de uma oficina mecânica.
 
+---
+
+## 🌐 Acesse o Sistema Online
+
+O sistema está disponível online no seguinte link:
+
+🔗 [mecanica-inazuma.netlify.app](https://mecanica-inazuma.netlify.app/)
+
+⚠️ **Atenção:** Os botões de cadastro e edição estão desativados para evitar um excesso de dados no banco de dados Firebase.
+
+🔑 **Credenciais de acesso ao sistema:**
+
+- **Email:** [admin@admin.com](mailto\:admin@admin.com)
+- **Senha:** admin123
+
+---
+
 ## ✨ Funcionalidades
 
 ✅ Dashboard financeiro interativo 📊\
