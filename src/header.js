@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebaseConnection";
-import { FiLogOut } from "react-icons/fi"; // Ícone de logout
+import { FiLogOut } from "react-icons/fi";
 import "./header.css";
 
 function Header() {

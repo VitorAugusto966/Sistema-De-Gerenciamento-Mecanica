@@ -87,3 +87,6 @@
 .button-link:hover {
     color: #0088cc; 
 }
+button:disabled{
+    cursor: not-allowed !important;
+  }

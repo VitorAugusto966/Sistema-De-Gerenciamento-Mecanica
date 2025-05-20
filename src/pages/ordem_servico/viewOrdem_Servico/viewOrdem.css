@@ -25,3 +25,7 @@
   outline: none;
   border-color: #0d86e8;
 }
+
+button:disabled{
+  cursor: not-allowed !important;
+}
